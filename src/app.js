@@ -13,7 +13,7 @@ import { config } from "dotenv";
 config()
 
 // console.log(process.env.mongo_url)
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 const router = express.Router()
