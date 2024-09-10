@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headerlinks}}
+</head>
+
+<body>
+    {{>navbar}}
+
+    <div class="login-box">
+        {{#if errorMessage}}
+        <h1 style="color: red; font-size: 2rem">{{errorMessage}}</h1>
+        {{/if}}
+        <div class="login-form">
+            <form action="/api/v1/users/login" method="POST">
+                <div class="input-field">
+                    <h3>Email :</h3>
+                    <label for="email">
+                        <input type="email" id="email" name="email" placeholder="abcd1234@gmail.com" required>
+                    </label>
+                </div>
+                <div class="input-field">
+                    <h3>Password :</h3>
+                    <label for="password">
+                        <input type="password" id="password" name="password" placeholder="Enter password..." required>
+                    </label>
+                </div>
+                <input class="login-btn" type="submit" value="login">
+
+                <div class="sign_up">
+                    <p>Don't have an account ? <a class="btn2" href="/register">register</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="demo">
+            <h4 class="demotxt">For login as  Demo/Test user :</h4>
+             <a class="demo-btn btn2">Click here</a>
+            </div>
+    </div>
+
+    {{>footer}}
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"
+        integrity="sha384-+sLIOodYLS7CIrQpBjl+C7nPvqq+FbNUBDunl/OZv93DB7Ln/533i8e/mZXLi/P+"
+        crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/a3daf3be9e.js" crossorigin="anonymous"></script>
+
+    <script src="../js/main.js"></script>
+
+    <script>
+        const demodata = document.getElementsByClassName("demo-btn")
+        const email =document.getElementById("email")
+        const password =document.getElementById("password")
+        demodata[0].addEventListener('click',()=>{
+            email.value = "testuser@test.com"
+            password.value = "testuser@123"
+        })
+    </script>
+</body>
+
+</html>
